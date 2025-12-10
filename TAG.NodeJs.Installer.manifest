@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Module xmlns="http://waher.se/Schema/ModuleManifest.xsd">
+	<Content fileName="NodeJs.config"/>
+	<Folder name="Root">
+		<Folder name="NodeJs">
+			<Content fileName="Settings.md"/>
+			<Content fileName="WinInstall.ps1"/>
+		</Folder>
+	</Folder>
+</Module>
