@@ -9,15 +9,15 @@ Login: /Login.md
 =========================================================
 
 {{
-    path:=GetSetting("nodejs_executable_path", "");
+    path:=GetSetting("NodeJS.Executable.Path", "");
     exeExists:=System.IO.File.Exists(path);
 
     if Exists(Posted) then (
         if Posted matches { "reinstall": Bool(PReinstall) } and PReinstall then (
             DesiredVersion := "24.11.1";
 
-            SetSetting("nodejs_current_version", "");
-            SetSetting("nodejs_executable_path", "");
+            SetSetting("NodeJS.Version", "");
+            SetSetting("NodeJS.Executable.Path", "");
 
             WorkDir:=Gateway.AppDataFolder + "packages\\";
             InstallScript:= "& '" + Gateway.AppDataFolder + "Root\\NodeJs\\WinInstall.ps1" + "'";
@@ -26,8 +26,8 @@ Login: /Login.md
             LogInformational(Args);
             ShellExecute("powershell.sh", Args, WorkDir);
 
-            SetSetting("nodejs_current_version", DesiredVersion);
-            SetSetting("nodejs_executable_path", WorkDir + "nodejs\\node.exe");
+            SetSetting("NodeJS.Version", DesiredVersion);
+            SetSetting("NodeJS.Executable.Path", WorkDir + "nodejs\\node.exe");
             ]]
 +> Reinstalled
             [[
@@ -36,7 +36,7 @@ Login: /Login.md
 }}
 
 # Node JS
-## Version: {{GetSetting("nodejs_current_version", "not installed")}}
+## Version: {{GetSetting("NodeJS.Version", "not installed")}}
 ## Path: {{MarkdownEncode(path);}}
 
 {{
