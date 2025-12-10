@@ -19,6 +19,20 @@ package using the following information:
 | Installation key | `aKY7N1VcoNeDvWXRTyLSoP1ZmrkPkIrh6nIgffiOrjM9Ix+qkT9C7lWn8O2NCcZ/PmuSO9T6S/uA1535b7c39de3bfd6f8f762ce76c92053` |
 | More Information |                                                                                                                |
 
+## Usage
+
+The package does not set the machines PATH enviorment variable to enable use of 
+
+> node index.js
+
+in a terminal, you have to sepcify the full path (eg: C:/Program Data/IoT Gateway/Packages/nodejs/node.exe) or 
+use the runtime setting using web script (.ws)
+> exec := GetSetting("NodeJS.Executable.Path", "");  
+> ShellExecute(exec, "index.js", "");
+
+or in c#
+> string ExecPath = await RuntimeSettings.GetAsync("NodeJS.Executable.Path", string.Empty);
+
 ## Settigns Page
 
 The settings page is `/NodeJs/Settings.md`.
